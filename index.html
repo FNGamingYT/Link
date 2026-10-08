@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra IP</title>
+</head>
+<body>
+    <h2>Thông tin truy cập của bạn:</h2>
+    <p>Địa chỉ IP của bạn là: <span id="ip-hien-tai">Đang tải...</span></p>
+
+    <script>
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-hien-tai').innerText = data.ip;
+            })
+            .catch(error => {
+                document.getElementById('ip-hien-tai').innerText = 'Không thể lấy IP';
+            });
+    </script>
+</body>
+</html>
